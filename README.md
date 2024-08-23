@@ -1,0 +1,2 @@
+# minecraft_classify_librarian_items
+マイクラの司書の画像から、交換可能なアイテムを判定する
