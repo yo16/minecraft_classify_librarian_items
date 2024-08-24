@@ -1,18 +1,13 @@
 # エンチャント本の価格を取得する
 # エンチャント本はあり、その位置（１行目か２行目か）はわかっている前提
 # tesseractが数字を読めないので、力技で読む
+# 高価に設定されているときも、元の価格を使う
 
 import os
 import cv2
 import numpy as np
 import re
 
-
-
-# 高価に訂正されているかどうかを判定するピクセルの、全体の座標(x, y)
-CHECK_COORDINATE = (192, 167)
-# このピクセルの色が赤のときは、高価に訂正されている
-IS_HIGHPRICE_COLOR_RGB = (186, 55, 15)
 
 # １段目の座標、２段目の場合はy+=40
 LINE_OFFSET = 40
@@ -34,21 +29,10 @@ def read_enchant_price(img: np.ndarray, enchant_line: int) -> int:
     line_offset = (enchant_line-1) * LINE_OFFSET
     #print(f"offset:{line_offset}")
 
-    # 通常版か訂正版(rgb=186,55,15)かを判定
-    b, g, r = img[CHECK_COORDINATE[1]+line_offset, CHECK_COORDINATE[0]]
-    #print(f"{r}, {g}, {b}")
-    is_normal_price = False \
-        if r == IS_HIGHPRICE_COLOR_RGB[0] and \
-           g == IS_HIGHPRICE_COLOR_RGB[1] and \
-           b == IS_HIGHPRICE_COLOR_RGB[2] \
-        else True
-    high_offset = 0 if is_normal_price else HIGH_OFFSET
-    #print(f"is_normal_price: {is_normal_price}")
-
     # 数値の領域を取得
     img_price = img[
         PRICE_RECT[1] + line_offset : PRICE_RECT[3] + line_offset,
-        PRICE_RECT[0] + high_offset : PRICE_RECT[2] + high_offset
+        PRICE_RECT[0] : PRICE_RECT[2]
     ]
 
     # それ以外は全部白、文字は全部黒に変換
@@ -80,21 +64,21 @@ def to_int(img: np.ndarray) -> int:
 def parse_one(img: np.ndarray) -> int:
     if img[10, 6, 0] == 0:
         return 9
-    elif img[8, 6, 0] == 0:
-        return 4
-    elif img[2, 4, 0] == 0:
-        return 1
-    elif img[12, 0, 0] == 0:
+    elif img[12, 0, 0] == 0 and img[4, 8, 0] == 0:
         return 2
-    elif img[4, 2, 0] == 0:
+    elif img[12, 0, 0] == 0:
+        return 1
+    elif img[4, 4, 0] == 0:
         return 5
-    elif img[2, 2, 0] == 0:
-        return 6
     elif img[0, 0, 0] == 0:
         return 7
-    elif img[6, 0, 0] == 0:
+    elif img[2, 2, 0] == 0:
+        return 6
+    elif img[0, 8, 0] == 0:
+        return 4
+    elif img[4, 6, 0] == 0:
         return 0
-    elif img[6, 2, 0] == 0:
+    elif img[4, 0, 0] == 0:
         return 8
     elif img[2, 0, 0] == 0:
         return 3
@@ -119,18 +103,18 @@ if __name__=="__main__":
     image_path, line, expected = ("./sample-data/20240823_121815.png", 2, 20)
 
     # 訂正
-    image_path, line, expected = ("./sample-data/20240823_185546.png", 1, 18)
-    image_path, line, expected = ("./sample-data/20240823_185551.png", 1, 18)
-    image_path, line, expected = ("./sample-data/20240823_185556.png", 1, 18)
-    image_path, line, expected = ("./sample-data/20240823_185601.png", 1, 18)
-    image_path, line, expected = ("./sample-data/20240823_185616.png", 2, 11)
-    image_path, line, expected = ("./sample-data/20240823_185621.png", 2, 11)
-    image_path, line, expected = ("./sample-data/20240823_185639.png", 1, 46)
-    image_path, line, expected = ("./sample-data/20240823_185644.png", 1, 46)
-    image_path, line, expected = ("./sample-data/20240823_185649.png", 1, 46)
-    image_path, line, expected = ("./sample-data/20240823_185709.png", 1, 46)
-    image_path, line, expected = ("./sample-data/20240823_185720.png", 2, 27)
-    image_path, line, expected = ("./sample-data/20240823_185725.png", 1, 33)
+    image_path, line, expected = ("./sample-data/20240823_185546.png", 1, 13)
+    image_path, line, expected = ("./sample-data/20240823_185551.png", 1, 13)
+    image_path, line, expected = ("./sample-data/20240823_185556.png", 1, 13)
+    image_path, line, expected = ("./sample-data/20240823_185601.png", 1, 13)
+    image_path, line, expected = ("./sample-data/20240823_185616.png", 2, 6)
+    image_path, line, expected = ("./sample-data/20240823_185621.png", 2, 6)
+    image_path, line, expected = ("./sample-data/20240823_185639.png", 1, 41)
+    image_path, line, expected = ("./sample-data/20240823_185644.png", 1, 41)
+    image_path, line, expected = ("./sample-data/20240823_185649.png", 1, 41)
+    image_path, line, expected = ("./sample-data/20240823_185709.png", 1, 41)
+    image_path, line, expected = ("./sample-data/20240823_185720.png", 2, 22)
+    image_path, line, expected = ("./sample-data/20240823_185725.png", 1, 28)
     
 
     img = cv2.imread(image_path)

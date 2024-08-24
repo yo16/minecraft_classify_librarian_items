@@ -18,18 +18,18 @@ from src.readEnchantPrice import read_enchant_price
     ("./sample-data/20240823_121815.png", 2, 20),
 
     # 訂正
-    ("./sample-data/20240823_185546.png", 1, 18),
-    ("./sample-data/20240823_185551.png", 1, 18),
-    ("./sample-data/20240823_185556.png", 1, 18),
-    ("./sample-data/20240823_185601.png", 1, 18),
-    ("./sample-data/20240823_185616.png", 2, 11),
-    ("./sample-data/20240823_185621.png", 2, 11),
-    ("./sample-data/20240823_185639.png", 1, 46),
-    ("./sample-data/20240823_185644.png", 1, 46),
-    ("./sample-data/20240823_185649.png", 1, 46),
-    ("./sample-data/20240823_185709.png", 1, 46),
-    ("./sample-data/20240823_185720.png", 2, 27),
-    ("./sample-data/20240823_185725.png", 1, 33),
+    ("./sample-data/20240823_185546.png", 1, 13),
+    ("./sample-data/20240823_185551.png", 1, 13),
+    ("./sample-data/20240823_185556.png", 1, 13),
+    ("./sample-data/20240823_185601.png", 1, 13),
+    ("./sample-data/20240823_185616.png", 2, 6),
+    ("./sample-data/20240823_185621.png", 2, 6),
+    ("./sample-data/20240823_185639.png", 1, 41),
+    ("./sample-data/20240823_185644.png", 1, 41),
+    ("./sample-data/20240823_185649.png", 1, 41),
+    ("./sample-data/20240823_185709.png", 1, 41),
+    ("./sample-data/20240823_185720.png", 2, 22),
+    ("./sample-data/20240823_185725.png", 1, 28),
 ])
 def test_classify_items(img_path, line_number, expected):
     img = cv2.imread(img_path)
