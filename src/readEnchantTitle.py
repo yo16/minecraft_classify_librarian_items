@@ -46,22 +46,31 @@ def read_enchant_title(img: np.ndarray) -> str:
             #cv2.imwrite(f"./tmp/contour_{i}.png", target_area[y:y+h, x:x+w])
             found_image = target_area[y:y+h, x:x+w]     # GBRの画像から取り出す
     if found_image is None:
-        print("no contours found.")
+        #print("no contours found.")
         return ("", 0)
-    #cv2.imwrite("./tmp/found_image.png", found_image)
+    cv2.imwrite("./tmp/found_image.png", found_image)
 
     # エンチャントの文字（特定の色の部分）だけ取り出す
     lower_bound = np.array([165, 165, 165])
     upper_bound = np.array([170, 170, 170])
     mask_enchant_char = cv2.inRange(found_image, lower_bound, upper_bound)
+    cv2.imwrite("./tmp/mask_enchant_char1.png", mask_enchant_char)
+    if np.all(mask_enchant_char == 0):
+        # エンチャントの文字色がない → 呪い系の文字色で探す
+        lower_bound = np.array([79, 79, 247])
+        upper_bound = np.array([89, 89, 255])
+        mask_enchant_char = cv2.inRange(found_image, lower_bound, upper_bound)
+        cv2.imwrite("./tmp/mask_enchant_char2.png", mask_enchant_char)
     # それ以外は全部白、文字は全部黒に変換
     img_enchant_char = np.ones_like(found_image) * 255
     img_enchant_char[mask_enchant_char == 255] = [0, 0, 0]
-    #cv2.imwrite("./tmp/img_enchant_char.png", img_enchant_char)
+    cv2.imwrite("./tmp/img_enchant_char.png", img_enchant_char)
+
+    # 
 
     # グレースケール化
     img_enchant_char_gray = cv2.cvtColor(img_enchant_char, cv2.COLOR_BGR2GRAY)
-    #cv2.imwrite("./tmp/img_enchant_char_gray.png", img_enchant_char_gray)
+    cv2.imwrite("./tmp/img_enchant_char_gray.png", img_enchant_char_gray)
 
     # 文字の高さに合わせたサイズにする
     img_line_size = img_enchant_char_gray[24:49, :]
@@ -77,14 +86,26 @@ def read_enchant_title(img: np.ndarray) -> str:
 
     # "I"が、"1"と"T"に間違われることがあるので、強制置換（1もTも出てこないはず）
     replaced_text = re.sub(r"[1T]", "I", detected_text)
+    # "V"が、"U"に間違われることがあるので、強制置換
+    replaced_text = re.sub(r"U", "V", replaced_text)
+    # "束縛"が、"東縛"に間違われるので、強制置換
+    replaced_text = re.sub("東縛", "束縛", replaced_text)
 
     ## "I"があった場合は、その前にスペースを１つ入れる
     #replaced_text = re.sub(r"([^\sI]+)(I+)", r"\1 \2", replaced_text)
 
     # スペースを除去して、(I+)を数値化する
     ret_tuple = None
+    match_IV = re.search(r"(.*?)IV$", replaced_text)
+    match_V = re.search(r"(.*?)V$", replaced_text)
     match_I = re.search(r"(.*?)(I+)$", replaced_text)
-    if match_I:
+    if match_IV:
+        prefix = match_IV.group(1).replace(" ", "")
+        ret_tuple = (prefix, 4)
+    elif match_V:
+        prefix = match_IV.group(1).replace(" ", "")
+        ret_tuple = (prefix, 5)
+    elif match_I:
         prefix = match_I.group(1).replace(" ", "")
         count_I = len(match_I.group(2))
         ret_tuple = (prefix, count_I)
@@ -122,6 +143,9 @@ if __name__=="__main__":
     image_path = "./sample-data/20240823_185720.png"
     # パンチ II
     image_path = "./sample-data/20240823_185725.png"
+
+    # 束縛の呪い
+    image_path = "./sample-data/win_34.png"
     
 
     img = cv2.imread(image_path)
