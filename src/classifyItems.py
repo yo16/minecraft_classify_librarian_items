@@ -82,5 +82,9 @@ if __name__=="__main__":
 
     img = cv2.imread(image_path)
 
-    ret = classify_items(img)
-    print(ret)
+    #ret = classify_items(img)
+    #print(ret)
+
+    ret1, ret2 = classify_items(img)
+    print(ret1)
+    print(ret2)
