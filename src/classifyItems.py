@@ -13,14 +13,14 @@ IMG_IS_PAPER: np.ndarray = cv2.imread("./src/resources/trade_paper.png")
 # １アイテムの本の部分（１アイテム画像中の、x:67, y:0, w:32, h: 36）
 IMG_IS_BOOK: np.ndarray = cv2.imread("./src/resources/trade_book.png")
 
-def classify_items(image_path: str) -> tuple:
+def classify_items(img: np.ndarray) -> tuple:
     # 固定で２つの領域を取り出す
     # 1. x1:170, y1:143, x2: 342, y2: 179
     # 2. x1:170, y1:183, x2: 342, y2: 219
 
-    # 検査対象画像
-    img = cv2.imread(image_path)
-    #cv2.imwrite("./tmp/tmp0.png", img)
+    ## 検査対象画像
+    #img = cv2.imread(image_path)
+    ##cv2.imwrite("./tmp/tmp0.png", img)
 
     # 検査部分の取り出し
     roi_img = img[
@@ -80,5 +80,7 @@ if __name__=="__main__":
     # 紙(0), 本(2)
     #image_path = "./sample-data/20240823_121810.png"
 
-    ret = classify_items(image_path)
+    img = cv2.imread(image_path)
+
+    ret = classify_items(img)
     print(ret)

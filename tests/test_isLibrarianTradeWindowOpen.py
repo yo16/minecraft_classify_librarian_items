@@ -1,4 +1,6 @@
 import pytest
+import cv2
+
 from src.isLibrarianTradeWindowOpen import is_librarian_trade_window_open
 
 @pytest.mark.parametrize("img_path, expected", [
@@ -27,5 +29,7 @@ from src.isLibrarianTradeWindowOpen import is_librarian_trade_window_open
     ("./sample-data/20240823_121729.png", False),
 ])
 def test_is_librarian_trade_window_open(img_path, expected):
-    assert is_librarian_trade_window_open(img_path) == expected
+    img = cv2.imread(img_path)
+
+    assert is_librarian_trade_window_open(img) == expected
 

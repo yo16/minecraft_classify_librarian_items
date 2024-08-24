@@ -1,4 +1,6 @@
 import pytest
+import cv2
+
 from src.classifyItems import classify_items
 
 @pytest.mark.parametrize("img_path, expected", [
@@ -18,5 +20,6 @@ from src.classifyItems import classify_items
     ("./sample-data/20240823_121815.png", (0,2)),
 ])
 def test_classify_items(img_path, expected):
-    assert classify_items(img_path) == expected
+    img = cv2.imread(img_path)
+    assert classify_items(img) == expected
 

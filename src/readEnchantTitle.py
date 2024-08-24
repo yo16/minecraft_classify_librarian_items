@@ -16,9 +16,9 @@ os.environ["PATH"] += os.pathsep + TESSERACT_EXE_PATH
 os.environ["TESSDATA_PREFIX"] = TESSERACT_DATA_PATH
 
 
-def read_enchant_title(img_path: str) -> str:
-    # 検査対象画像
-    img = cv2.imread(img_path)
+def read_enchant_title(img: np.ndarray) -> str:
+    ## 検査対象画像
+    #img = cv2.imread(img_path)
 
     # 矩形領域を取り出す
     # (x,y) = 303,107 ～ 562,246
@@ -124,6 +124,7 @@ if __name__=="__main__":
     image_path = "./sample-data/20240823_185725.png"
     
 
-    ret = read_enchant_title(image_path)
+    img = cv2.imread(image_path)
+    ret = read_enchant_title(img)
     print(ret)
 

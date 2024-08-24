@@ -1,4 +1,6 @@
 import pytest
+import cv2
+
 from src.readEnchantTitle import read_enchant_title
 
 @pytest.mark.parametrize("img_path, expected", [
@@ -29,5 +31,6 @@ from src.readEnchantTitle import read_enchant_title
     ("./sample-data/20240823_185725.png", ("パンチ", 2)),
 ])
 def test_classify_items(img_path, expected):
-    assert read_enchant_title(img_path) == expected
+    img = cv2.imread(img_path)
+    assert read_enchant_title(img) == expected
 

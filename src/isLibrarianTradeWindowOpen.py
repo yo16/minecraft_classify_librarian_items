@@ -7,9 +7,9 @@ import cv2
 
 TRADE_MASKED_IMAGE_PATH = "./src/resources/librarian_trade_mask.png"
 
-def is_librarian_trade_window_open(image_path: str) -> bool:
-    # 対象画像の読み込み
-    img_cur = cv2.imread(image_path)
+def is_librarian_trade_window_open(img: np.ndarray) -> bool:
+    ## 対象画像の読み込み
+    #img_cur = cv2.imread(image_path)
 
     # 司書の取引画面以外をマスクしたマスク画像の読み込み
     img_trade_masked = cv2.imread(TRADE_MASKED_IMAGE_PATH)
@@ -17,11 +17,11 @@ def is_librarian_trade_window_open(image_path: str) -> bool:
     range_mask = cv2.inRange(img_trade_masked, (1,1,1), (255, 255, 255))
 
     # 対象画像に非マスク領域を適用して抽出
-    img_cur_masked = cv2.bitwise_and(img_cur, img_cur, mask=range_mask)
-    #cv2.imwrite("./tmp/tmp2.png", img_cur_masked)
+    img_masked = cv2.bitwise_and(img, img, mask=range_mask)
+    #cv2.imwrite("./tmp/tmp2.png", img_masked)
 
     # 比較
-    diff = cv2.absdiff(img_cur_masked, img_trade_masked)
+    diff = cv2.absdiff(img_masked, img_trade_masked)
     # ゼロでない部分（一致しない部分）のカウント
     non_zero_count = np.count_nonzero(diff)
     
@@ -36,5 +36,6 @@ if __name__=="__main__":
     # 非取引画面
     image_path = "./sample-data/20240823_121528.png"
 
-    ret = is_librarian_trade_window_open(image_path)
+    img = cv2.imread(image_path)
+    ret = is_librarian_trade_window_open(img)
     print(ret)
