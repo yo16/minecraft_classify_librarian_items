@@ -18,6 +18,8 @@ from src.isLibrarianTradeWindowOpen import is_librarian_trade_window_open
     ("./sample-data/20240823_121805.png", True),
     ("./sample-data/20240823_121810.png", True),
     ("./sample-data/20240823_121815.png", True),
+    ("./sample-data/kami_tana.png", True),
+    ("./sample-data/kami_tana2.png", True),
 
     # 非取引画面
     ("./sample-data/20240823_121528.png", False),

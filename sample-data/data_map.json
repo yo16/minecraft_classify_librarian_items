@@ -1,0 +1,582 @@
+{
+    "enchanting":[
+            {"name":"Cleaving", "max_level": 3},
+            {"name":"アンデッド特効", "max_level": 5},
+            {"name":"棘の鎧", "max_level": 3},
+            {"name":"入れ食い", "max_level": 3},
+            {"name":"火炎耐性", "max_level": 4},
+            {"name":"拡散", "max_level": 1},
+            {"name":"貫通", "max_level": 4},
+            {"name":"激流", "max_level": 3},
+            {"name":"幸運", "max_level": 3},
+            {"name":"高速装填", "max_level": 3},
+            {"name":"効率強化", "max_level": 5},
+            {"name":"氷渡り", "max_level": 2},
+            {"name":"射撃ダメージ増加", "max_level": 5},
+            {"name":"修繕", "max_level": 1},
+            {"name":"消滅の呪い", "max_level": 1},
+            {"name":"召雷", "max_level": 1},
+            {"name":"シルクタッチ", "max_level": 1},
+            {"name":"水生特効", "max_level": 5},
+            {"name":"水中呼吸", "max_level": 3},
+            {"name":"水中採掘", "max_level": 1},
+            {"name":"水中歩行", "max_level": 3},
+            {"name":"スニーク速度上昇", "max_level": 3},
+            {"name":"ソウルスピード", "max_level": 3},
+            {"name":"束縛の呪い", "max_level": 1},
+            {"name":"耐久力", "max_level": 3},
+            {"name":"宝釣り", "max_level": 3},
+            {"name":"ダメージ軽減", "max_level": 4},
+            {"name":"ダメージ増加", "max_level": 5},
+            {"name":"忠誠", "max_level": 3},
+            {"name":"飛び道具耐性", "max_level": 4},
+            {"name":"ドロップ増加", "max_level": 3},
+            {"name":"ノックバック", "max_level": 2},
+            {"name":"爆発耐性", "max_level": 4},
+            {"name":"範囲ダメージ増加", "max_level": 3},
+            {"name":"パンチ", "max_level": 2},
+            {"name":"火属性", "max_level": 2},
+            {"name":"フレイム", "max_level": 1},
+            {"name":"無限", "max_level": 1},
+            {"name":"虫特効", "max_level": 5},
+            {"name":"落下耐性", "max_level": 4},
+            {"name":"防具貫通", "max_level": 4},
+            {"name":"重撃", "max_level": 5}
+        ],
+    "data": [
+        {
+            "file_name": "undead2.png",
+            "text": "アンデッド特効 II",
+            "enchant": "アンデッド特効",
+            "level": 2
+        },
+        {
+            "file_name": "undead4.png",
+            "text": "アンデッド特効 IV",
+            "enchant": "アンデッド特効",
+            "level": 4
+        },
+        {
+            "file_name": "undead5.png",
+            "text": "アンデッド特効 V",
+            "enchant": "アンデッド特効",
+            "level": 5
+        },
+        {
+            "file_name": "toge2.png",
+            "text": "棘の鎧 II",
+            "enchant": "棘の鎧",
+            "level": 2
+        },
+        {
+            "file_name": "toge3_2.png",
+            "text": "棘の鎧 III",
+            "enchant": "棘の鎧",
+            "level": 3
+        },
+        {
+            "file_name": "toge3.png",
+            "text": "棘の鎧 III",
+            "enchant": "棘の鎧",
+            "level": 3
+        },
+        {
+            "file_name": "iregui3.png",
+            "text": "入れ食い III",
+            "enchant": "入れ食い",
+            "level": 3
+        },
+        {
+            "file_name": "kaen_taisei4.png",
+            "text": "火炎耐性 IV",
+            "enchant": "火炎耐性",
+            "level": 4
+        },
+        {
+            "file_name": "kakusan.png",
+            "text": "拡散",
+            "enchant": "拡散",
+            "level": 0
+        },
+        {
+            "file_name": "kakusan_2.png",
+            "text": "拡散",
+            "enchant": "拡散",
+            "level": 0
+        },
+        {
+            "file_name": "kantsuu1.png",
+            "text": "貫通 I",
+            "enchant": "貫通",
+            "level": 1
+        },
+        {
+            "file_name": "gekiryuu2.png",
+            "text": "激流 II",
+            "enchant": "激流",
+            "level": 2
+        },
+        {
+            "file_name": "kouun1.png",
+            "text": "幸運 I",
+            "enchant": "幸運",
+            "level": 1
+        },
+        {
+            "file_name": "kouun2.png",
+            "text": "幸運 II",
+            "enchant": "幸運",
+            "level": 2
+        },
+        {
+            "file_name": "kouun3.png",
+            "text": "幸運 III",
+            "enchant": "幸運",
+            "level": 3
+        },
+        {
+            "file_name": "kousoku_souten2.png",
+            "text": "高速装填 II",
+            "enchant": "高速装填",
+            "level": 2
+        },
+        {
+            "file_name": "kousoku_souten2_2.png",
+            "text": "高速装填 II",
+            "enchant": "高速装填",
+            "level": 2
+        },
+        {
+            "file_name": "kouritsu_kyouka3.png",
+            "text": "効率強化 III",
+            "enchant": "効率強化",
+            "level": 3
+        },
+        {
+            "file_name": "kouritsu_kyouka4.png",
+            "text": "効率強化 IV",
+            "enchant": "効率強化",
+            "level": 4
+        },
+        {
+            "file_name": "koori2.png",
+            "text": "氷渡り II",
+            "enchant": "氷渡り",
+            "level": 2
+        },
+        {
+            "file_name": "koori2_2.png",
+            "text": "氷渡り II",
+            "enchant": "氷渡り",
+            "level": 2
+        },
+        {
+            "file_name": "koori2_3.png",
+            "text": "氷渡り II",
+            "enchant": "氷渡り",
+            "level": 2
+        },
+        {
+            "file_name": "shageki_damage1.png",
+            "text": "射撃ダメージ増加 I",
+            "enchant": "射撃ダメージ増加",
+            "level": 1
+        },
+        {
+            "file_name": "shageki_damage2.png",
+            "text": "射撃ダメージ増加 II",
+            "enchant": "射撃ダメージ増加",
+            "level": 2
+        },
+        {
+            "file_name": "shageki_damage1_2.png",
+            "text": "射撃ダメージ増加 I",
+            "enchant": "射撃ダメージ増加",
+            "level": 1
+        },
+        {
+            "file_name": "shageki_damage3.png",
+            "text": "射撃ダメージ増加 III",
+            "enchant": "射撃ダメージ増加",
+            "level": 3
+        },
+        {
+            "file_name": "shuuzen.png",
+            "text": "修繕",
+            "enchant": "修繕",
+            "level": 0
+        },
+        {
+            "file_name": "shuuzen_2.png",
+            "text": "修繕",
+            "enchant": "修繕",
+            "level": 0
+        },
+        {
+            "file_name": "shuuzen_3.png",
+            "text": "修繕",
+            "enchant": "修繕",
+            "level": 0
+        },
+        {
+            "file_name": "shometsu.png",
+            "text": "消滅の呪い",
+            "enchant": "消滅の呪い",
+            "level": 0
+        },
+        {
+            "file_name": "shorai.png",
+            "text": "召雷",
+            "enchant": "召雷",
+            "level": 0
+        },
+        {
+            "file_name": "silk_touch.png",
+            "text": "シルクタッチ",
+            "enchant": "シルクタッチ",
+            "level": 0
+        },
+        {
+            "file_name": "silk_touch_2.png",
+            "text": "シルクタッチ",
+            "enchant": "シルクタッチ",
+            "level": 0
+        },
+        {
+            "file_name": "silk_touch_3.png",
+            "text": "シルクタッチ",
+            "enchant": "シルクタッチ",
+            "level": 0
+        },
+        {
+            "file_name": "suisei_tokkou2.png",
+            "text": "水生特効 II",
+            "enchant": "水生特効",
+            "level": 2
+        },
+        {
+            "file_name": "suisei_tokkou5.png",
+            "text": "水生特効 V",
+            "enchant": "水生特効",
+            "level": 5
+        },
+        {
+            "file_name": "suichuu_kokyuu1.png",
+            "text": "水中呼吸 I",
+            "enchant": "水中呼吸",
+            "level": 1
+        },
+        {
+            "file_name": "suichuu_kokyuu3.png",
+            "text": "水中呼吸 III",
+            "enchant": "水中呼吸",
+            "level": 3
+        },
+        {
+            "file_name": "suichuu_saikutsu.png",
+            "text": "水中採掘",
+            "enchant": "水中採掘",
+            "level": 0
+        },
+        {
+            "file_name": "suichuu_saikutsu_2.png",
+            "text": "水中採掘",
+            "enchant": "水中採掘",
+            "level": 0
+        },
+        {
+            "file_name": "suichuu_hokou1.png",
+            "text": "水中歩行 I",
+            "enchant": "水中歩行",
+            "level": 1
+        },
+        {
+            "file_name": "suichuu_hokou2.png",
+            "text": "水中歩行 II",
+            "enchant": "水中歩行",
+            "level": 2
+        },
+        {
+            "file_name": "suichuu_hokou2_2.png",
+            "text": "水中歩行 II",
+            "enchant": "水中歩行",
+            "level": 2
+        },
+        {
+            "file_name": "suichuu_hokou3.png",
+            "text": "水中歩行 III",
+            "enchant": "水中歩行",
+            "level": 3
+        },
+        {
+            "file_name": "",
+            "text": "スニーク速度上昇 III",
+            "enchant": "スニーク速度上昇",
+            "level": 3
+        },
+        {
+            "file_name": "",
+            "text": "ソウルスピード III",
+            "enchant": "ソウルスピード",
+            "level": 3
+        },
+        {
+            "file_name": "sokubaku.png",
+            "text": "束縛の呪い",
+            "enchant": "束縛の呪い",
+            "level": 0
+        },
+        {
+            "file_name": "taikyuuryoku2.png",
+            "text": "耐久力 II",
+            "enchant": "耐久力",
+            "level": 2
+        },
+        {
+            "file_name": "taikyuuryoku2_2.png",
+            "text": "耐久力 II",
+            "enchant": "耐久力",
+            "level": 2
+        },
+        {
+            "file_name": "taikyuuryoku2_3.png",
+            "text": "耐久力 II",
+            "enchant": "耐久力",
+            "level": 2
+        },
+        {
+            "file_name": "taikyuuryoku3.png",
+            "text": "耐久力 III",
+            "enchant": "耐久力",
+            "level": 3
+        },
+        {
+            "file_name": "takara3.png",
+            "text": "宝釣り III",
+            "enchant": "宝釣り",
+            "level": 3
+        },
+        {
+            "file_name": "damage_keigen4.png",
+            "text": "ダメージ軽減 IV",
+            "enchant": "ダメージ軽減",
+            "level": 4
+        },
+        {
+            "file_name": "damage_zouka3.png",
+            "text": "ダメージ増加 III",
+            "enchant": "ダメージ増加",
+            "level": 3
+        },
+        {
+            "file_name": "damage_zouka3_2.png",
+            "text": "ダメージ増加 III",
+            "enchant": "ダメージ増加",
+            "level": 3
+        },
+        {
+            "file_name": "damage_zouka5.png",
+            "text": "ダメージ増加 V",
+            "enchant": "ダメージ増加",
+            "level": 5
+        },
+        {
+            "file_name": "chuusei2.png",
+            "text": "忠誠 II",
+            "enchant": "忠誠",
+            "level": 2
+        },
+        {
+            "file_name": "chuusei2_2.png",
+            "text": "忠誠 II",
+            "enchant": "忠誠",
+            "level": 2
+        },
+        {
+            "file_name": "chuusei2_3.png",
+            "text": "忠誠 II",
+            "enchant": "忠誠",
+            "level": 2
+        },
+        {
+            "file_name": "tobidougu_taisei2.png",
+            "text": "飛び道具耐性 II",
+            "enchant": "飛び道具耐性",
+            "level": 2
+        },
+        {
+            "file_name": "tobidougu_taisei3.png",
+            "text": "飛び道具耐性 III",
+            "enchant": "飛び道具耐性",
+            "level": 3
+        },
+        {
+            "file_name": "drop_zouka3.png",
+            "text": "ドロップ増加 III",
+            "enchant": "ドロップ増加",
+            "level": 3
+        },
+        {
+            "file_name": "knockback1.png",
+            "text": "ノックバック I",
+            "enchant": "ノックバック",
+            "level": 1
+        },
+        {
+            "file_name": "knockback2.png",
+            "text": "ノックバック II",
+            "enchant": "ノックバック",
+            "level": 2
+        },
+        {
+            "file_name": "bakuhatsu_taisei3.png",
+            "text": "爆発耐性 III",
+            "enchant": "爆発耐性",
+            "level": 3
+        },
+        {
+            "file_name": "hanni2.png",
+            "text": "範囲ダメージ増加 II",
+            "enchant": "範囲ダメージ増加",
+            "level": 2
+        },
+        {
+            "file_name": "punch1.png",
+            "text": "パンチ I",
+            "enchant": "パンチ",
+            "level": 1
+        },
+        {
+            "file_name": "punch2.png",
+            "text": "パンチ II",
+            "enchant": "パンチ",
+            "level": 2
+        },
+        {
+            "file_name": "punch2_2.png",
+            "text": "パンチ II",
+            "enchant": "パンチ",
+            "level": 2
+        },
+        {
+            "file_name": "hizokusei1.png",
+            "text": "火属性 I",
+            "enchant": "火属性",
+            "level": 1
+        },
+        {
+            "file_name": "hizokusei1_2.png",
+            "text": "火属性 I",
+            "enchant": "火属性",
+            "level": 1
+        },
+        {
+            "file_name": "hizokusei2.png",
+            "text": "火属性 II",
+            "enchant": "火属性",
+            "level": 2
+        },
+        {
+            "file_name": "hizokusei2_2.png",
+            "text": "火属性 II",
+            "enchant": "火属性",
+            "level": 2
+        },
+        {
+            "file_name": "flame.png",
+            "text": "フレイム",
+            "enchant": "フレイム",
+            "level": 0
+        },
+        {
+            "file_name": "mugen.png",
+            "text": "無限",
+            "enchant": "無限",
+            "level": 0
+        },
+        {
+            "file_name": "mugen_2.png",
+            "text": "無限",
+            "enchant": "無限",
+            "level": 0
+        },
+        {
+            "file_name": "mugen_3.png",
+            "text": "無限",
+            "enchant": "無限",
+            "level": 0
+        },
+        {
+            "file_name": "mushi1.png",
+            "text": "虫特効 I",
+            "enchant": "虫特効",
+            "level": 1
+        },
+        {
+            "file_name": "mushi2.png",
+            "text": "虫特効 II",
+            "enchant": "虫特効",
+            "level": 2
+        },
+        {
+            "file_name": "rakka_taisei1.png",
+            "text": "落下耐性 I",
+            "enchant": "落下耐性",
+            "level": 1
+        },
+        {
+            "file_name": "rakka_taisei4.png",
+            "text": "落下耐性 IV",
+            "enchant": "落下耐性",
+            "level": 4
+        },
+        {
+            "file_name": "bougu_kantsu1.png",
+            "text": "防具貫通 I",
+            "enchant": "防具貫通",
+            "level": 1
+        },
+        {
+            "file_name": "bougu_kantsu1_2.png",
+            "text": "防具貫通 I",
+            "enchant": "防具貫通",
+            "level": 1
+        },
+        {
+            "file_name": "bougu_kantsu2.png",
+            "text": "防具貫通 II",
+            "enchant": "防具貫通",
+            "level": 2
+        },
+        {
+            "file_name": "bougu_kantsu3.png",
+            "text": "防具貫通 III",
+            "enchant": "防具貫通",
+            "level": 3
+        },
+        {
+            "file_name": "bougu_kantsu3_2.png",
+            "text": "防具貫通 III",
+            "enchant": "防具貫通",
+            "level": 3
+        },
+        {
+            "file_name": "bougu_kantsu4.png",
+            "text": "防具貫通 IV",
+            "enchant": "防具貫通",
+            "level": 4
+        },
+        {
+            "file_name": "juugeki1.png",
+            "text": "重撃",
+            "enchant": "重撃",
+            "level": 1
+        },
+        {
+            "file_name": "juugeki2.png",
+            "text": "重撃",
+            "enchant": "重撃",
+            "level": 2
+        }
+    ]
+}

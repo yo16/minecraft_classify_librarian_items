@@ -1,10 +1,21 @@
 # 取引内容をDBへ保存する
 
+import json
 import sqlite3
 from datetime import datetime
 
 # DBファイル
 DB_FILE = "./minecraft_data.db"
+
+# エンチャント本定義ファイル
+ENCHANT_DEF = "./src/resources/enchant_definition.json"
+with open(ENCHANT_DEF, 'r', encoding="utf-8") as f:
+    enchant_def_data  = json.load(f)
+# エンチャントリスト
+enchant_list = {}
+for enchant in enchant_def_data["enchanting"]:
+    enchant_list[enchant["name"]] = enchant["max_level"]
+
 
 # 取引内容の型
 class TradeInfo:
@@ -16,8 +27,33 @@ class TradeInfo:
             self.name = "本棚"
         else:
             self.name = name
+            # エンチャント名の存在チェック
+            #print(name)
+            assert name in enchant_list
+            max_level = enchant_list[name]
+            #print(f"max Lv {max_level}")
+            if max_level == 0:
+                assert level == 0
+            else:
+                # レベルが指定されていることのチェック
+                assert level != None
+                # 価格が指定されていることのチェック
+                assert price != None
+                
+                # レベルの上限チェック
+                assert level <= max_level
+        
         self.level = level
         self.price = price
+
+    
+
+    def to_string(self) -> str:
+        lv = f" lv{self.level}" if self.level else ""
+        pr = f"  ({self.price})" if self.price else ""
+
+        return f"{self.name}{lv}{pr}"
+
 
 def save_trade_info(trade1: TradeInfo, trade2: TradeInfo):
     conn = sqlite3.connect(DB_FILE)

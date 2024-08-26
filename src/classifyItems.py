@@ -79,6 +79,7 @@ if __name__=="__main__":
     image_path = "./sample-data/20240823_121533.png"
     # 紙(0), 本(2)
     #image_path = "./sample-data/20240823_121810.png"
+    image_path = "./sample-data/kami_tana.png"
 
     img = cv2.imread(image_path)
 

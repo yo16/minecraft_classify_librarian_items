@@ -95,7 +95,7 @@ def test_insert_with_no_table():
     (1, (0,), (1,), [("紙", None, None), ("本棚", None, None)]),
     (2, (1,), (0,), [("紙", None, None), ("本棚", None, None)]),
     (3, (0,), (2,"忠誠",2,31), [("紙", None, None), ("忠誠", 2, 31)]),
-    (4, (2,"修繕"), (0,), [("紙", None, None), ("修繕", None, None)]),
+    (4, (2,"修繕",0,32), (0,), [("紙", None, None), ("修繕", 0, 32)]),
 ])
 def test_insert_trades(test_seq, trade1, trade2, expected):
     """ insertするテスト """

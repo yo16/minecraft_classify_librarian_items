@@ -18,6 +18,7 @@ from src.classifyItems import classify_items
     ("./sample-data/20240823_121805.png", (1,2)),
     ("./sample-data/20240823_121810.png", (0,2)),
     ("./sample-data/20240823_121815.png", (0,2)),
+    ("./sample-data/kami_tana.png", (0,1)),
 ])
 def test_classify_items(img_path, expected):
     img = cv2.imread(img_path)
