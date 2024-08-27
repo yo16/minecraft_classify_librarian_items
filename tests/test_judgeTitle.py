@@ -2,13 +2,12 @@ import pytest
 import cv2
 import json
 import os
-import numpy as np
 
-from src.readEnchantTitle import img_preprocess, get_and_erase_level
 from src.judgeTitle import judge_title
 
 
 # テストデータの整理
+# data_map.jsonのdataに登録されている画像をテストする
 json_path = "./sample-data/data_map.json"
 with open(json_path, mode="r", encoding="utf-8") as f:
     data_map = json.load(f)
@@ -26,7 +25,7 @@ for data_info in data_map["data"]:
 
 @pytest.mark.parametrize("img_path, expected", test_params)
 def test_classify_items(img_path, expected):
-    img = cv2.imread(img_path)
+    img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
     img_line = img.flatten()
 
     enchant_title = judge_title(img_line)
