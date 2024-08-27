@@ -5,12 +5,12 @@ import mss
 import numpy as np
 import cv2
 
-from getWindowSize import get_window_size
-from isLibrarianTradeWindowOpen import is_librarian_trade_window_open
-from classifyItems import classify_items
-from readEnchantTitle import read_enchant_title
-from readEnchantPrice import read_enchant_price
-from saveTradeInfo import save_trade_info, TradeInfo
+from .getWindowSize import get_window_size
+from .isLibrarianTradeWindowOpen import is_librarian_trade_window_open
+from .classifyItems import classify_items
+from .readEnchantTitle import read_enchant_title
+from .readEnchantPrice import read_enchant_price
+from .saveTradeInfo import save_trade_info, TradeInfo
 
 def monitor_minecraft(
     window_title: str,
@@ -102,6 +102,7 @@ def monitor_minecraft(
         )
         ti1 = TradeInfo(items[0]) if items[0]!=2 else enchant_trade_info
         ti2 = TradeInfo(items[1]) if items[1]!=2 else enchant_trade_info
+        print('----')
         print(ti1.to_string())
         print(ti2.to_string())
         save_trade_info(ti1, ti2)
