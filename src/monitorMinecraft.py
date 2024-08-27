@@ -74,6 +74,7 @@ def monitor_minecraft(
         if items[0] != 2 and items[1] != 2:
             ti1 = TradeInfo(items[0])
             ti2 = TradeInfo(items[1])
+            print('----')
             print(ti1.to_string())
             print(ti2.to_string())
             save_trade_info(ti1, ti2)
