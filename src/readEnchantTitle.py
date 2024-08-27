@@ -17,7 +17,7 @@ from typing import Tuple
 #os.environ["PATH"] += os.pathsep + TESSERACT_EXE_PATH
 #os.environ["TESSDATA_PREFIX"] = TESSERACT_DATA_PATH
 
-from .judgeTitle import judge_title
+from judgeTitle import judge_title
 
 
 # Lv画像を読んでおく
@@ -198,13 +198,8 @@ def img_preprocess(img: np.ndarray, debug_mode=False, invert=True, text_padding=
 #    return ret_tuple
 
 
-# タイトルとレベルを読む
-def read_enchant_title(img: np.ndarray, debug_mode=False) -> Tuple[str, int]:
-    # 画像前処理
-    img_text = img_preprocess(img, debug_mode, text_padding=0, invert=False)
-    if img_text is None:
-        return ("", 0)
-    
+# 前処理後のテキストの部分の画像から、Lvを取得するとともに、Lvを消した画像(200x15 pixcel)を返す
+def get_and_erase_level(img_text: np.ndarray, debug_mode: bool=False) -> Tuple[int, np.ndarray]:
     # 一番右端のindexを取得
     max_rightmost_index = np.max(np.where(img_text == 255)[1])
     #print(max_rightmost_index)
@@ -234,12 +229,63 @@ def read_enchant_title(img: np.ndarray, debug_mode=False) -> Tuple[str, int]:
     img_pure_title = img_text[:, :max_rightmost_index-rtrim_width]
     cv2.imwrite("./tmp/img_pure_title.png", img_pure_title) if debug_mode else None
 
-    # もう一度15x200pxに整形して、1次元配列化
+    # もう一度200x15pxに整形
     img_title = np.zeros((15, 200), dtype=np.uint8)
     img_title[:, :max_rightmost_index-rtrim_width] = img_pure_title
     cv2.imwrite("./tmp/img_title.png", img_title) if debug_mode else None
+
+    return (lv, img_title)
+
+
+# タイトルとレベルを読む
+def read_enchant_title(img: np.ndarray, debug_mode=False) -> Tuple[str, int]:
+    # 画像前処理
+    img_text = img_preprocess(img, debug_mode, text_padding=0, invert=False)
+    if img_text is None:
+        return ("", 0)
+    
+#    # 一番右端のindexを取得
+#    max_rightmost_index = np.max(np.where(img_text == 255)[1])
+#    #print(max_rightmost_index)
+#
+#    # 画像の終了位置は含めないため、+1しておく
+#    max_rightmost_index += 1
+#
+#    # LV_IMAGESと比較
+#    lv = 0
+#    rtrim_width = 0     # Lvの分を除去する幅
+#    for i, lv_img in enumerate(LV_IMAGES):
+#        # 右端から比較
+#        _, lv_img_width = lv_img.shape
+#        if debug_mode:
+#            cv2.imwrite(f"./tmp/lv_{(i+1)}_target.png", img_text[:, max_rightmost_index-lv_img_width:max_rightmost_index])
+#            cv2.imwrite(f"./tmp/lv_{(i+1)}_comp.png", lv_img)
+#        if np.array_equal(
+#            img_text[:, max_rightmost_index-lv_img_width:max_rightmost_index],
+#            lv_img
+#        ):
+#           # 見つけた
+#           lv = i + 1
+#           rtrim_width = lv_img_width
+#           break
+#
+#    # Lvを除いた文字を取り出す
+#    img_pure_title = img_text[:, :max_rightmost_index-rtrim_width]
+#    cv2.imwrite("./tmp/img_pure_title.png", img_pure_title) if debug_mode else None
+#
+#    # もう一度200x15pxに整形して、1次元配列化
+#    img_title = np.zeros((15, 200), dtype=np.uint8)
+#    img_title[:, :max_rightmost_index-rtrim_width] = img_pure_title
+#    cv2.imwrite("./tmp/img_title.png", img_title) if debug_mode else None
+#    img_title_line = img_title.flatten()
+#    cv2.imwrite("./tmp/img_title_line.png", img_title_line) if debug_mode else None
+    
+    # 前処理後のテキストの部分の画像から、Lvを取得するとともに、Lvを消した画像(200x15 pixcel)を返す
+    lv, img_title = get_and_erase_level(img_text, debug_mode)
+
+    # １次元化
     img_title_line = img_title.flatten()
-    cv2.imwrite("./tmp/img_title_line.png", img_title_line) if debug_mode else None
+    #cv2.imwrite("./tmp/img_title_line.png", img_title_line) if debug_mode else None
     
     # 判断
     title_text = judge_title(img_title_line)
