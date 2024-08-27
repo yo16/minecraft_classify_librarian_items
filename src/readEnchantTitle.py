@@ -17,7 +17,7 @@ from typing import Tuple
 #os.environ["PATH"] += os.pathsep + TESSERACT_EXE_PATH
 #os.environ["TESSDATA_PREFIX"] = TESSERACT_DATA_PATH
 
-from judgeTitle import judge_title
+from .judgeTitle import judge_title
 
 
 # Lv画像を読んでおく
@@ -32,7 +32,7 @@ LV_IMAGES = [
 
 
 # 全体のキャプチャ画像から、エンチャント本の文字だけのグレイスケールの画像に変換する
-def img_preprocess(img: np.ndarray, debug_mode=False, invert=True, text_padding=0) -> np.ndarray | None:
+def img_preprocess(img: np.ndarray, debug_mode=False, invert=False, text_padding=0) -> np.ndarray | None:
     # エンチャントの本のタイトルが出る矩形領域を取り出す
     # (x,y) = 290,100 ～ 570,270
     target_area = img[100:270, 290:570]
