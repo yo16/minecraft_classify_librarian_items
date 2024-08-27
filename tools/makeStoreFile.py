@@ -17,11 +17,11 @@ import pickle
 
 # Lv画像を読んでおく
 LV_IMAGES = [
-    cv2.imread("./sample-data/lv1.png", cv2.IMREAD_GRAYSCALE),
-    cv2.imread("./sample-data/lv2.png", cv2.IMREAD_GRAYSCALE),
-    cv2.imread("./sample-data/lv3.png", cv2.IMREAD_GRAYSCALE),
-    cv2.imread("./sample-data/lv4.png", cv2.IMREAD_GRAYSCALE),
-    cv2.imread("./sample-data/lv5.png", cv2.IMREAD_GRAYSCALE),
+    cv2.imread("./src/resources/lv1.png", cv2.IMREAD_GRAYSCALE),
+    cv2.imread("./src/resources/lv2.png", cv2.IMREAD_GRAYSCALE),
+    cv2.imread("./src/resources/lv3.png", cv2.IMREAD_GRAYSCALE),
+    cv2.imread("./src/resources/lv4.png", cv2.IMREAD_GRAYSCALE),
+    cv2.imread("./src/resources/lv5.png", cv2.IMREAD_GRAYSCALE),
 ]
 
 
