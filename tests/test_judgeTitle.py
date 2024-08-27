@@ -24,7 +24,7 @@ for data_info in data_map["data"]:
 
 
 @pytest.mark.parametrize("img_path, expected", test_params)
-def test_classify_items(img_path, expected):
+def test_judge_title(img_path, expected):
     img = cv2.imread(img_path, cv2.IMREAD_GRAYSCALE)
     img_line = img.flatten()
 
