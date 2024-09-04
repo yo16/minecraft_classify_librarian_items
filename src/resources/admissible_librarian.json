@@ -1,0 +1,166 @@
+{
+    "admissible_librarian": [
+        {
+            "enchant": "水生特効",
+            "level": 5,
+            "col": "D",
+            "row": 8
+        },
+        {
+            "enchant": "忠誠",
+            "level": 3,
+            "col": "D",
+            "row": 7
+        },
+        {
+            "enchant": "入れ食い",
+            "level": 3,
+            "col": "D",
+            "row": 6
+        },
+        {
+            "enchant": "宝釣り",
+            "level": 3,
+            "col": "D",
+            "row": 5
+        },
+        {
+            "enchant": "幸運",
+            "level": 3,
+            "col": "D",
+            "row": 3
+        },
+        {
+            "enchant": "シルクタッチ",
+            "level": 1,
+            "col": "D",
+            "row": 2
+        },
+        {
+            "enchant": "効率強化",
+            "level": 5,
+            "col": "D",
+            "row": 1
+        },
+        {
+            "enchant": "水中呼吸",
+            "level": 3,
+            "col": "C",
+            "row": 7
+        },
+        {
+            "enchant": "水中歩行",
+            "level": 3,
+            "col": "C",
+            "row": 6
+        },
+        {
+            "enchant": "水中採掘",
+            "level": 1,
+            "col": "C",
+            "row": 5
+        },
+        {
+            "enchant": "棘の鎧",
+            "level": 3,
+            "col": "C",
+            "row": 3
+        },
+        {
+            "enchant": "落下耐性",
+            "level": 4,
+            "col": "C",
+            "row": 2
+        },
+        {
+            "enchant": "ダメージ軽減",
+            "level": 4,
+            "col": "C",
+            "row": 1
+        },
+        {
+            "enchant": "防具貫通",
+            "level": 4,
+            "col": "B",
+            "row": 8
+        },
+        {
+            "enchant": "フレイム",
+            "level": 1,
+            "col": "B",
+            "row": 7
+        },
+        {
+            "enchant": "無限",
+            "level": 1,
+            "col": "B",
+            "row": 6
+        },
+        {
+            "enchant": "射撃ダメージ増加",
+            "level": 5,
+            "col": "B",
+            "row": 5
+        },
+        {
+            "enchant": "耐久力",
+            "level": 3,
+            "col": "B",
+            "row": 2
+        },
+        {
+            "enchant": "修繕",
+            "level": 1,
+            "col": "B",
+            "row": 1
+        },
+        {
+            "enchant": "重撃",
+            "level": 5,
+            "col": "A",
+            "row": 8
+        },
+        {
+            "enchant": "ノックバック",
+            "level": 1,
+            "col": "A",
+            "row": 7
+        },
+        {
+            "enchant": "ノックバック",
+            "level": 2,
+            "col": "A",
+            "row": 6
+        },
+        {
+            "enchant": "アンデッド特効",
+            "level": 5,
+            "col": "A",
+            "row": 5
+        },
+        {
+            "enchant": "火属性",
+            "level": 2,
+            "col": "A",
+            "row": 4
+        },
+        {
+            "enchant": "ドロップ増加",
+            "level": 3,
+            "col": "A",
+            "row": 3
+        },
+        {
+            "enchant": "範囲ダメージ増加",
+            "level": 3,
+            "col": "A",
+            "row": 2
+        },
+        {
+            "enchant": "ダメージ増加",
+            "level": 5,
+            "col": "A",
+            "row": 1
+        }
+    ]
+}
