@@ -1,7 +1,7 @@
 from src.monitorMinecraft import monitor_minecraft
 
 
-window_title = "Minecraft 1.21.1 - シングルプレイ"
+window_title = "Minecraft 1.21.3 - シングルプレイ"
 sleep_time = 0.2
 max_count = int(60 / sleep_time)     # 合計秒数/slee_time
 

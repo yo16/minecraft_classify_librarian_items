@@ -11,6 +11,7 @@ from .classifyItems import classify_items
 from .readEnchantTitle import read_enchant_title
 from .readEnchantPrice import read_enchant_price
 from .saveTradeInfo import save_trade_info, TradeInfo
+from .showHitLibrarians import show_hit_librarians
 
 def monitor_minecraft(
     window_title: str,
@@ -107,6 +108,9 @@ def monitor_minecraft(
         print(ti1.to_string())
         print(ti2.to_string())
         save_trade_info(ti1, ti2)
+
+        # 当たったときは表示
+        show_hit_librarians(enchant_title, enchant_level)
 
 
 

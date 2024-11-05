@@ -29,3 +29,7 @@ class AdmissibleLibrarians:
         
         return False
 
+
+    # 受け入れ可能ならその位置を標準出力する
+    def print_pos(self, enchant_name, level):
+
